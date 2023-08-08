@@ -1,22 +1,16 @@
+import { Link } from "expo-router"
 import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { Image, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
-import {
-  Text,
-} from "app/components"
+import { Text } from "src/components"
 import { isRTL } from "../i18n"
-import { AppStackScreenProps } from "../navigators"
 import { colors, spacing } from "../theme"
 import { useSafeAreaInsetsStyle } from "../utils/useSafeAreaInsetsStyle"
 
 const welcomeLogo = require("../../assets/images/logo.png")
 const welcomeFace = require("../../assets/images/welcome-face.png")
 
-interface WelcomeScreenProps extends AppStackScreenProps<"Welcome"> {}
-
-export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeScreen(
-) {
-
+export const WelcomeScreen: FC = observer(function WelcomeScreen() {
   const $bottomContainerInsets = useSafeAreaInsetsStyle(["bottom"])
 
   return (
@@ -35,6 +29,7 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeSc
 
       <View style={[$bottomContainer, $bottomContainerInsets]}>
         <Text tx="welcomeScreen.postscript" size="md" />
+        <Link href="/debug">Navigate to Debug screen</Link>
       </View>
     </View>
   )

@@ -25,6 +25,23 @@ const ar: Translations = {
       button: "لنحاول هذا مرّة أخرى",
     },
   },
+  demoDebugScreen: {
+    howTo: "كيف",
+    title: "التصحيح",
+    tagLine: "مبروك، لديك نموذج اصلي متقدم للغاية للتفاعل هنا. الاستفادة من هذه النمذجة",
+    reactotron: "Reactotron ارسل إلى",
+    reportBugs: "الابلاغ عن اخطاء",
+    demoList: "قائمة تجريبية",
+    demoPodcastList: "قائمة البودكاست التجريبي",
+    androidReactotronHint:
+      "اذا لم ينجح ذللك، فتأكد من تشغيل تطبيق الحاسوب الخاص Reactotron، وقم بتشغيل عكس adb tcp:9090 \ntcp:9090 من جهازك الطرفي ، واعد تحميل التطبيق",
+    iosReactotronHint:
+      "اذا لم ينجح ذلك، فتأكد من تشغيل تطبيق الحاسوب الخاص ب Reactotron وأعد تحميل التطبيق",
+    macosReactotronHint: "اذا لم ينجح ذلك، فتأكد من تشغيل الحاسوب ب Reactotron وأعد تحميل التطبيق",
+    webReactotronHint: "اذا لم ينجح ذلك، فتأكد من تشغيل الحاسوب ب Reactotron وأعد تحميل التطبيق",
+    windowsReactotronHint:
+      "اذا لم ينجح ذلك، فتأكد من تشغيل الحاسوب ب Reactotron وأعد تحميل التطبيق",
+  },
 }
 
 export default ar

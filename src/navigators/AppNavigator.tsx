@@ -13,10 +13,10 @@ import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navig
 import { observer } from "mobx-react-lite"
 import React from "react"
 import { useColorScheme } from "react-native"
-import * as Screens from "app/screens"
+import * as Screens from "src/screens"
 import Config from "../config"
 import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
-import { colors } from "app/theme"
+import { colors } from "src/theme"
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator

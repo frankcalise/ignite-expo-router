@@ -1,6 +1,6 @@
 import React from "react"
-import { Text } from "react-native"
+import { WelcomeScreen } from "src/screens"
 
 export default function Page() {
-  return <Text>Home page</Text>
+  return <WelcomeScreen />
 }
