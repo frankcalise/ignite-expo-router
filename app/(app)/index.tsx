@@ -1,16 +1,34 @@
-import { Link } from "expo-router"
+import { router } from "expo-router"
 import { observer } from "mobx-react-lite"
-import React, { FC } from "react"
+import React from "react"
 import { Image, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
-import { Text } from "src/components"
-import { isRTL } from "../i18n"
-import { colors, spacing } from "../theme"
-import { useSafeAreaInsetsStyle } from "../utils/useSafeAreaInsetsStyle"
+import { Button, Text } from "src/components"
+import { isRTL } from "src/i18n"
+import { useStores } from "src/models"
+import { colors, spacing } from "src/theme"
+import { useHeader } from "src/utils/useHeader"
+import { useSafeAreaInsetsStyle } from "src/utils/useSafeAreaInsetsStyle"
 
-const welcomeLogo = require("../../assets/images/logo.png")
-const welcomeFace = require("../../assets/images/welcome-face.png")
+const welcomeLogo = require("assets/images/logo.png")
+const welcomeFace = require("assets/images/welcome-face.png")
 
-export const WelcomeScreen: FC = observer(function WelcomeScreen() {
+export default observer(function WelcomeScreen() {
+  const {
+    authenticationStore: { logout },
+  } = useStores()
+
+  function goNext() {
+    router.replace("/showroom")
+  }
+
+  useHeader(
+    {
+      rightTx: "common.logOut",
+      onRightPress: logout,
+    },
+    [logout],
+  )
+
   const $bottomContainerInsets = useSafeAreaInsetsStyle(["bottom"])
 
   return (
@@ -29,7 +47,12 @@ export const WelcomeScreen: FC = observer(function WelcomeScreen() {
 
       <View style={[$bottomContainer, $bottomContainerInsets]}>
         <Text tx="welcomeScreen.postscript" size="md" />
-        <Link href="/debug">Navigate to Debug screen</Link>
+        <Button
+          testID="next-screen-button"
+          preset="reversed"
+          tx="welcomeScreen.letsGo"
+          onPress={goNext}
+        />
       </View>
     </View>
   )

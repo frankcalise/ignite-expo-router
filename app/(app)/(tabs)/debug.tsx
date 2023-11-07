@@ -1,23 +1,19 @@
-import React from "react"
+import React, { FC } from "react"
 import * as Application from "expo-application"
 import { Linking, Platform, TextStyle, View, ViewStyle } from "react-native"
 import { Button, ListItem, Screen, Text } from "src/components"
 import { colors, spacing } from "src/theme"
 import { isRTL } from "src/i18n"
-import { Stack, router } from "expo-router"
-import { useHeader } from "src/utils/useHeader"
+import { useStores } from "src/models"
 
 function openLinkInBrowser(url: string) {
   Linking.canOpenURL(url).then((canOpen) => canOpen && Linking.openURL(url))
 }
 
-export default function DebugScreen() {
-  useHeader({
-    leftTx: "common.back",
-    onLeftPress: () => router.back(),
-    rightTx: "demoDebugScreen.reportBugs",
-    onRightPress: () => openLinkInBrowser("https://github.com/infinitered/ignite/issues"),
-  })
+export default function DemoDebugScreen() {
+  const {
+    authenticationStore: { logout },
+  } = useStores()
 
   const usingHermes = typeof HermesInternal === "object" && HermesInternal !== null
   // @ts-expect-error
@@ -43,18 +39,11 @@ export default function DebugScreen() {
   )
 
   return (
-    <Screen preset="scroll" contentContainerStyle={$container}>
-      <Stack.Screen
-        options={{
-          // https://reactnavigation.org/docs/headers#setting-the-header-title
-          title: "Debug",
-          // https://reactnavigation.org/docs/headers#adjusting-header-styles
-          headerStyle: { backgroundColor: "#f4511e" },
-          headerTintColor: "#fff",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
-        }}
+    <Screen preset="scroll" safeAreaEdges={["top"]} contentContainerStyle={$container}>
+      <Text
+        style={$reportBugsLink}
+        tx="demoDebugScreen.reportBugs"
+        onPress={() => openLinkInBrowser("https://github.com/infinitered/ignite/issues")}
       />
       <Text style={$title} preset="heading" tx="demoDebugScreen.title" />
       <View style={$itemsContainer}>
@@ -111,6 +100,9 @@ export default function DebugScreen() {
         <Button style={$button} tx="demoDebugScreen.reactotron" onPress={demoReactotron} />
         <Text style={$hint} tx={`demoDebugScreen.${Platform.OS}ReactotronHint` as const} />
       </View>
+      <View style={$buttonContainer}>
+        <Button style={$button} tx="common.logOut" onPress={logout} />
+      </View>
     </Screen>
   )
 }
@@ -153,3 +145,5 @@ const $hint: TextStyle = {
   lineHeight: 15,
   paddingBottom: spacing.lg,
 }
+
+// @demo remove-file
