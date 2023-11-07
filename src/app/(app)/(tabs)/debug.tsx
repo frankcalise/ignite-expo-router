@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React from "react"
 import * as Application from "expo-application"
 import { Linking, Platform, TextStyle, View, ViewStyle } from "react-native"
 import { Button, ListItem, Screen, Text } from "src/components"

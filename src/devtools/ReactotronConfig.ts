@@ -6,7 +6,6 @@
 import { Platform } from "react-native"
 
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import { ArgType } from "reactotron-core-client"
 import { mst } from "reactotron-mst"
 
 import { clear } from "src/utils/storage"

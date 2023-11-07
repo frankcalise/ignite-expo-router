@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React from "react"
 import { Image, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
 import { ListItem, Screen, Text } from "src/components"
 import { spacing } from "src/theme"
