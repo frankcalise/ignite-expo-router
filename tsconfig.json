@@ -13,20 +13,13 @@
     "noUnusedLocals": true,
     "sourceMap": true,
     "target": "esnext",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "src/*": [
-        "./src/*"
-      ],
-      "assets/*": [
-        "./assets/*"
-      ]
+      "src/*": ["./src/*"],
+      "assets/*": ["./assets/*"]
     }
   },
   "extends": "expo/tsconfig.base",
@@ -37,7 +30,6 @@
   },
   "include": [
     "index.js",
-    "App.tsx",
     "app",
     "types",
     "plugins",
@@ -46,8 +38,5 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "test/**/*"
-  ]
+  "exclude": ["node_modules", "test/**/*"]
 }

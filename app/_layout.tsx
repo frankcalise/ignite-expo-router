@@ -1,6 +1,8 @@
 import React from "react"
 import { Slot, SplashScreen } from "expo-router"
 import { useInitialRootStore } from "src/models"
+import { GestureHandlerRootView } from "react-native-gesture-handler"
+import { ViewStyle } from "react-native"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -21,5 +23,13 @@ export default function Root() {
     return null
   }
 
-  return <Slot />
+  return (
+    <GestureHandlerRootView style={$container}>
+      <Slot />
+    </GestureHandlerRootView>
+  )
+}
+
+const $container: ViewStyle = {
+  flex: 1,
 }
