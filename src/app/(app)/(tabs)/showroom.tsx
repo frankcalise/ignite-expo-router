@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useEffect, useRef, useState } from "react"
+import React, { FC, useEffect, useRef, useState } from "react"
 import { Image, ImageStyle, SectionList, TextStyle, View, ViewStyle } from "react-native"
 import { Drawer } from "react-native-drawer-layout"
 import { type ContentStyle } from "@shopify/flash-list"
@@ -11,12 +11,6 @@ import { DrawerIconButton } from "src/components/Showroom/DrawerIconButton"
 import { Link, useLocalSearchParams } from "expo-router"
 
 const logo = require("assets/images/logo.png")
-
-export interface Demo {
-  name: string
-  description: string
-  data: ReactElement[]
-}
 
 interface DemoListItem {
   item: { name: string; useCases: string[] }
